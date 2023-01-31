@@ -1,8 +1,18 @@
-def cadastrar ():
-        print('Cadastrando')
+alunos = []
+def cadastrar():
+    print('Cadastrando')
+    nome = input('Nome: ')
+    turma = input('Turma: ')
+    aluno = [nome, turma]
+    alunos.append(aluno)
+    print('Cadastro realizado')
 
-def listar ():
-        print('Listando')
+def listar():
+    print('Listando')
+    print('nome\tturma')
+    for aluno in alunos:
+        print(f'{aluno[0]}\t{aluno[1]}') 
+     
 
 while True:
     print('1. Cadastrar Aluno\n2. Listar\n3. Sair')
