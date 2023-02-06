@@ -1,17 +1,19 @@
-alunos = []
-
 def cadastrar():
     nome = input('Nome: ')
     turma = input('Turma: ')
-    aluno = [nome, turma]
     print('Cadastrando...')
-    alunos.append(aluno)
+    arquivo = open("alunos.txt.", "a")
+    arquivo.write(f"{nome} ,{turma}\n")
+    arquivo.close()
     print('Cadastro realizado com sucesso')
 
 def listar():
     print('Listando...')
-    print(f'nome\tturma')
-    for aluno in alunos:
+    with open("alunos.txt", "r") as arquivo:
+        linhas = arquivo.readlines()
+    print(f'Nome\tTurma')
+    for linha in linhas:
+        aluno = linha.strip().split(',')
         print(f'{aluno[0]}\t{aluno[1]}')
 
 while True:
